@@ -493,15 +493,24 @@ void informeSalarios(Employee lista[], int len)
     float promedio;
     int supProm;
 
-    total = totalSalarios(lista, len);
-    promedio = promedioSalarios(lista, len);
-    supProm = cantEmpleadosSupSalarioProm(lista, len);
-
-    system("cls");
-    printf("  *** Informe De Salarios ***   \n");
-    printf("    Total        Promedio       Cant. Empleados que superan el salario promedio\n");
-    printf("----------------------------------------------------------------------------\n");
-    printf("   10%d      %10.2f                    %3d\n", total, promedio, supProm);
+    if(lista != NULL && len > 0)
+    {
+        total = totalSalarios(lista, len);
+        promedio = promedioSalarios(lista, len);
+        supProm = cantEmpleadosSupSalarioProm(lista, len);
+        if(!lista[0].isEmpty)
+        {
+            system("cls");
+            printf("  *** Informe De Salarios ***   \n");
+            printf("    Total        Promedio       Cant. Empleados que superan el salario promedio\n");
+            printf("----------------------------------------------------------------------------\n");
+            printf("   10%d      %10.2f                    %3d\n", total, promedio, supProm);
+        }
+        else
+        {
+            printf("No se ha cargado ningun empleado aun. Intente luego de cargar alguno\n");
+        }
+    }
 }
 
 int isNumber(char s[])
